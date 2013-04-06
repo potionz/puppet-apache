@@ -4,9 +4,8 @@ package { 'httpd':
 
 }
 file { '/etc/httpd/conf/cgi.conf':
-	ensure => present,
-	mode => 0644,
-	target => 'cgi.conf',	
+	ensure => link,
+	target => '/home/base/puppet/cgi.conf',	
 	require => Package['httpd'],
 }
 
