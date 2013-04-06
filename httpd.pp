@@ -1,23 +1,20 @@
-$httpd = $operatingsystem ? {
-	default => httpd
-	}
-
-package { $httpd:
+package { 'httpd':
 	ensure => installed,
 	alias => apache
+
 }
 file { '/etc/httpd/conf/cgi.conf':
-	path => '/etc/httpd/conf/',
 	ensure => present,
-	contetn => "LoadModule cgi_module modules/mod_cgi.so",
+	mode => 0644,
+	target => 'cgi.conf',	
+	require => Package['httpd'],
 }
 
-
-service { $httpd:
+service { 'httpd':
 	enable => true,
 	ensure => running,
 	hasrestart => true,
-	require => Package['httpd'],	
+	require => Package['httpd'],
 }
 
 
