@@ -3,7 +3,9 @@ file {'motd':
 	ensure => present,
 	mode => 0644,
 	content => "fedora
-test motd
+edited on server
+kkdajfl
+a
 puppet",
 }
 
