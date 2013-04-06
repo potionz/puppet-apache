@@ -4,7 +4,9 @@ file {'motd':
 	mode => 0644,
 	content => "fedora
 edited on server
-puppet",
+puppet
+
+kokot",
 
 }
 
