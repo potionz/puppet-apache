@@ -1,6 +1,6 @@
 package { 'httpd':
 	ensure => installed,
-	alias => apache
+	alias => apache,
 
 }
 file { '/etc/httpd/conf/cgi.conf':
@@ -8,10 +8,15 @@ file { '/etc/httpd/conf/cgi.conf':
 	mode => 644,
 	owner => root,
 	group => root,
-	content => template('/home/base/puppet/cgi.conf'),	
+	content => template('/home/base/puppet/template/cgi.conf'),	
 	require => Package['httpd'],
 }
-
+file { '/var/www/cgi-bin/index.pl':
+	mode => 755,
+	owner => apache,
+	group => apache,
+	content => template('/home/base/puppet/scripts/index.pl'),
+}	
 service { 'httpd':
 	enable => true,
 	ensure => running,
