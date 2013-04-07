@@ -4,8 +4,11 @@ package { 'httpd':
 
 }
 file { '/etc/httpd/conf/cgi.conf':
-	ensure => link,
-	target => '/home/base/puppet/cgi.conf',	
+	notify => Service['httpd'],
+	mode => 644,
+	owner => root,
+	group => root,
+	content => template('/home/base/puppet/cgi.conf'),	
 	require => Package['httpd'],
 }
 
@@ -15,5 +18,6 @@ service { 'httpd':
 	hasrestart => true,
 	require => Package['httpd'],
 }
+
 
 
