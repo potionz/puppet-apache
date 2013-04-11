@@ -1,7 +1,6 @@
 package { 'httpd':			# name of package which
 	ensure => installed,		# ensure package is installed, if not puppet will install this package
 	alias => apache,		
-
 }
 file { '/etc/httpd/conf/cgi.conf':	# set path and file name for cgi config
 	notify => Service['httpd'],	# this will notify service httpd if config will be changed

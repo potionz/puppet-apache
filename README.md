@@ -10,7 +10,7 @@ For cgi scripts is used cgi.conf file which is in template/cgi.conf.
 This configuration file will be copy into /etc/httpd/conf/cgi.conf,
 and must be edited only in template/cgi.conf.
 Also there is example test perl scripts/index.pl which show us some system info,
-which is copied into /var/www/cgi-bin/index.pl.
+this file is copied into /var/www/cgi-bin/index.pl.
 
 ## Requirements: ##
 Generally, you need the following things installed:
@@ -19,11 +19,11 @@ Generally, you need the following things installed:
 * Ruby 1.8.7, and 1.9.3 are fully supported.
 * Ruby OpenSSL library.
 
-## Installation: ##
+## Usage: ##
 
 You can start installation with:
 
 *puppet apply main.pp*
 
-it will start automaticly run httpd.pp and perl.pp.
+it will automaticly run httpd.pp and perl.pp manifests.
 
